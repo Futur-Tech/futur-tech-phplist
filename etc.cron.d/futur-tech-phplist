@@ -1,2 +1,2 @@
-0-59/5  *   *   *   *   root    /usr/local/bin/ft-phplist-cron -pprocessqueue
-0       3   *   *   *   root    /usr/local/bin/ft-phplist-cron -pprocessbounces
+0-59/5  *   *   *   *   root    /usr/local/bin/futur-tech-phplist/ft-phplist-cron -pprocessqueue
+0       3   *   *   *   root    /usr/local/bin/futur-tech-phplist/ft-phplist-cron -pprocessbounces
