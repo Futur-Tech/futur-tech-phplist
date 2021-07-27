@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Script to run a command on all the phpList installation (usually via a Cron task) 
+
+source /usr/local/bin/ft_util_inc_var
+source /usr/local/etc/ft-phplist.conf
+
+IFS=' '
+for phplist in $(echo $PHPLIST_SETTINGS | sed "s/;/ /g")
+do
+    #####################
+    # Getting variables #
+    #####################    
+    IFS=':'
+    read -a settings <<<"$phplist"
+  
+    if [ ! -d "${settings[0]}" ]
+    then
+        $S_LOG -s crit -d $S_NAME "The first setting is incorrect \"$phplist\", check your conf file (DAVICAL_SETTINGS)"
+        exit 9
+    fi
+
+    if [ -z "${settings[1]}" ]
+    then
+        $S_LOG -s crit -d $S_NAME "The second setting is missing in \"$phplist\", check your conf file (DAVICAL_SETTINGS)"
+        exit 10
+    fi
+
+    PHPLIST_PATH="${settings[0]}"
+    PHPLIST_FQDN="${settings[1]}"
+
+    ###############
+    # Run Command #
+    ###############    
+    /usr/bin/php "${PHPLIST_PATH}/admin/index.php" -c "${PHPLIST_PATH}/config/config.php" $* | $S_LOG -d "$S_NAME" -i 
+
+done
