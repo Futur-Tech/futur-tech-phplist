@@ -5,7 +5,8 @@
 source /usr/local/bin/futur-tech-phplist/ft_util_inc_var
 source /usr/local/etc/ft-phplist.conf
 
-LOG_DEBUG=true 
+# Switch to true in order to turn on output
+LOG_DEBUG=false 
 
 $S_LOG -s debug -d "$S_NAME" "Running $*" 
 
