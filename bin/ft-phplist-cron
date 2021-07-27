@@ -5,6 +5,8 @@
 source /usr/local/bin/futur-tech-phplist/ft_util_inc_var
 source /usr/local/etc/ft-phplist.conf
 
+$S_LOG -d "$S_NAME" "$*" 
+
 IFS=' '
 for phplist in $(echo $PHPLIST_SETTINGS | sed "s/;/ /g")
 do
