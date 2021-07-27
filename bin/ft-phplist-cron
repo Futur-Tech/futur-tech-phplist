@@ -2,7 +2,7 @@
 
 # Script to run a command on all the phpList installation (usually via a Cron task) 
 
-source /usr/local/bin/ft_util_inc_var
+source /usr/local/bin/futur-tech-phplist/ft_util_inc_var
 source /usr/local/etc/ft-phplist.conf
 
 IFS=' '
