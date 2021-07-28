@@ -5,11 +5,8 @@
 source /usr/local/bin/futur-tech-phplist/ft_util_inc_var
 source /usr/local/etc/ft-phplist.conf
 
-# Switch to true in order to turn on output
-LOG_DEBUG=false 
-
-$S_LOG -s debug -d "$S_NAME" "Running $*" 
-/usr/bin/php -v | $S_LOG -s debug -d "$S_NAME" -d "PHP Version" -i
+$S_LOG -d "$S_NAME" "Running $*" 
+/usr/bin/php -v | $S_LOG -d "$S_NAME" -d "PHP Version" -i
 
 IFS=' '
 for phplist in $(echo $PHPLIST_SETTINGS | sed "s/;/ /g")
@@ -35,11 +32,11 @@ do
     PHPLIST_PATH="${settings[0]}"
     PHPLIST_FQDN="${settings[1]}"
 
-    $S_LOG -s debug -d "$S_NAME" -d "$PHPLIST_FQDN" "Path phpList: $PHPLIST_PATH"
+    $S_LOG -d "$S_NAME" -d "$PHPLIST_FQDN" "Path phpList: $PHPLIST_PATH"
 
     ###############
     # Run Command #
     ###############    
-    $PHP_BIN "${PHPLIST_PATH}/admin/index.php" -c "${PHPLIST_PATH}/config/config.php" $* | $S_LOG -s debug -d "$S_NAME" -d "$PHPLIST_FQDN" -i 
+    $PHP_BIN "${PHPLIST_PATH}/admin/index.php" -c "${PHPLIST_PATH}/config/config.php" $* | $S_LOG -d "$S_NAME" -d "$PHPLIST_FQDN" -i 
 
 done
