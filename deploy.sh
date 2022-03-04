@@ -36,9 +36,4 @@ $S_DIR/ft-util/ft_util_conf-update -s "$S_DIR/etc/${APP_SHORTNAME}.conf" -d "$ET
 
 $S_LOG -d "$S_NAME" "End $S_NAME"
 
-echo "
-------------------------------------------
-        --------------------------
-                ----------
-"
 exit
