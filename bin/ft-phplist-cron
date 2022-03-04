@@ -19,13 +19,13 @@ do
   
     if [ ! -d "${settings[0]}" ]
     then
-        $S_LOG -s crit -d $S_NAME "The first setting is incorrect \"$phplist\", check your conf file (DAVICAL_SETTINGS)"
+        $S_LOG -s crit -d $S_NAME "The first setting is incorrect \"$phplist\", check your conf file (PHPLIST_SETTINGS)"
         exit 9
     fi
 
     if [ -z "${settings[1]}" ]
     then
-        $S_LOG -s crit -d $S_NAME "The second setting is missing in \"$phplist\", check your conf file (DAVICAL_SETTINGS)"
+        $S_LOG -s crit -d $S_NAME "The second setting is missing in \"$phplist\", check your conf file (PHPLIST_SETTINGS)"
         exit 10
     fi
 
